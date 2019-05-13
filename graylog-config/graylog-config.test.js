@@ -4,7 +4,7 @@ const helper = require("node-red-node-test-helper");
 
 helper.init(require.resolve("node-red"));
 
-describe("openfaas-config node", function() {
+describe("graylog-config node", function() {
   beforeEach(function(done) {
     helper.startServer(done);
   });
