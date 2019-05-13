@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  RED.nodes.registerType("graylog-output", {
+    category: "output",
+    color: "#929497",
+    defaults: {
+      name: { value: "" },
+      server: { value: "", type: "graylog-config" }
+    },
+    icon: "file-out.png",
+    inputs: 1,
+    outputs: 1,
+    label: function() {
+      return this.name || "graylog-output";
+    }
+  });
+</script>
+
+<script type="text/x-red" data-help-name="graylog-output">
+  <p>Sends data to Graylog.
+  Uses <a href="https://github.com/robertkowalski/gelf-node"><code>robertkowalski/gelf-node</code></a>
+  internally.</p>
+
+  <h3>Details</h3>
+  <p>If provided with <code>String</code>, then outputs short message with <code>msg.payload</code> as content. If
+  <code>msg.payload</code> contains JSON, use specification from repository.</code>
+</script>
