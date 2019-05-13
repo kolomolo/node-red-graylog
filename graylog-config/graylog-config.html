@@ -1,0 +1,49 @@
+<script type="text/javascript">
+  RED.nodes.registerType("graylog-config", {
+    category: "config",
+    defaults: {
+      host: { value: "localhost", required: true },
+      port: { value: 8080, required: true, validate: RED.validators.number() },
+      connection: { value: "wan", required: false },
+      maxChunkSizeWan: {
+        value: 1420,
+        required: false,
+        validate: RED.validators.number()
+      },
+      maxChunkSizeLan: {
+        value: 8154,
+        required: false,
+        validate: RED.validators.number()
+      }
+    },
+    label: function() {
+      return this.host + ":" + this.port;
+    }
+  });
+</script>
+
+<script type="text/x-red" data-template-name="openfaas-config">
+  <div class="form-row">
+      <label for="node-config-input-host"><i class="icon-bookmark"></i> Host</label>
+      <input type="text" id="node-config-input-host">
+  </div>
+  <div class="form-row">
+      <label for="node-config-input-port"><i class="icon-bookmark"></i> Port</label>
+      <input type="text" id="node-config-input-port">
+  </div>
+  <div class="form-row">
+      <label for="node-config-input-connection"><i class="icon-bookmark"></i> Connection Type</label>
+      <select type="text" id="node-config-input-connection" style="width: 150px;">
+        <option value="wan">WAN</option>
+        <option value="lan">LAN</option>
+      </select>
+  </div>
+  <div class="form-row">
+      <label for="node-config-input-max-chunk-size-lan"><i class="icon-bookmark"></i> Max Chunk Size for LAN Connection</label>
+      <input type="text" id="node-config-input-max-chunk-size-lan">
+  </div>
+  <div class="form-row">
+      <label for="node-config-input-max-chunk-size-wan"><i class="icon-bookmark"></i> Max Chunk Size for WAN connections</label>
+      <input type="text" id="node-config-input-max-chunk-size-wan">
+  </div>
+</script>

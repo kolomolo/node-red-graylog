@@ -4,8 +4,8 @@ module.exports = function(RED) {
     this.host = settings.host;
     this.port = settings.port;
     this.connection = settings.connection;
-    this.maxChunk = settings.maxChunk;
-    this.minChunk = settings.minChunk;
+    this.maxChunkSizeWan = settings.maxChunkSizeWan;
+    this.maxChunkSizeLan = settings.maxChunkSizeLan;
   }
 
   RED.nodes.registerType("graylog-config", GraylogConfigNode);
