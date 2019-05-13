@@ -1,0 +1,55 @@
+{
+  "name": "node-red-contrib-graylog",
+  "version": "1.2.0",
+  "description": "NodeRED Graylog",
+  "author": "Franciszek Madej <franciszek.madej@kolomololabs.com>",
+  "license": "GPL-3.0",
+  "private": false,
+  "scripts": {
+    "release": "standard-version",
+    "test": "nyc --reporter=lcov mocha --recursive ./graylog*/*test.js",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "node-red": {
+    "nodes": {
+      "graylog-config": "graylog-config/graylog-config.js",
+      "graylog-output": "graylog-output/graylog-output.js"
+    }
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.2.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-mocha": "^5.3.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^2.1.0",
+    "mocha": "^6.1.4",
+    "nock": "^10.0.6",
+    "node-red": "^0.20.5",
+    "node-red-node-test-helper": "^0.2.2",
+    "nyc": "^14.1.0",
+    "prettier": "^1.17.0",
+    "should": "^13.2.3",
+    "standard-version": "^5.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test",
+      "pre-push": "npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "gelf": "^2.0.1"
+  }
+}
