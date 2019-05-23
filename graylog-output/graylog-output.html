@@ -8,11 +8,22 @@
     },
     icon: "file-out.png",
     inputs: 1,
-    outputs: 1,
+    outputs: 0,
     label: function() {
       return this.name || "graylog-output";
     }
   });
+</script>
+
+<script type="text/x-red" data-template-name="graylog-output">
+  <div class="form-row">
+      <label for="node-input-name"><i class="icon-bookmark"></i> Name</label>
+      <input type="text" id="node-input-name">
+  </div>
+  <div class="form-row">
+      <label for="node-input-server"><i class="icon-server"></i> Graylog server</label>
+      <select id="node-input-server"></select>
+  </div>
 </script>
 
 <script type="text/x-red" data-help-name="graylog-output">
