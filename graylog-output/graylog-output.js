@@ -16,6 +16,7 @@ module.exports = function(RED) {
       maxChunkSizeLan: this.server.maxChunkSizeLan
     });
 
+    /* istanbul ignore next */
     gelf.on("error", error => {
       this.warn("Graylog error: " + error);
     });
